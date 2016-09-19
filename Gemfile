@@ -18,11 +18,16 @@ gem 'jquery-hotkeys-rails'
 gem 'dropzonejs-rails'
 gem 'rails_autolink'
 gem 'autosize-rails'
-gem 'gemoji'
+gem 'md_emoji'
+
+# Markdown
+gem 'redcarpet', '~> 3.3.4'
+gem 'rouge'
 
 group :development, :test do
   gem 'sqlite3', '1.3.11'
   gem 'byebug',  '9.0.0', platform: :mri
+  gem 'pry-rails'
 end
 
 group :development do

@@ -46,6 +46,12 @@ loadAtWho = ()->
           return
         )
       return
+  ).atwho(
+    at : ":"
+    data : window.EMOJI_LIST
+    insertTpl: ":${name}:",
+    displayTpl : "<li data-value='${name}:'><img src='/assets/emojis/${name}.png' height='20' width='20'/> ${name} </li>"
+    true
   ).on('shown.atwho', (event, flag, query) ->
     isOpenAt = true
     return

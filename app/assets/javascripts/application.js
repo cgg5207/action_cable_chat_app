@@ -16,4 +16,5 @@
 //= require jquery-hotkeys
 //= require jquery.autosize
 //= require turbolinks
+//= require emoji_list.js
 //= require_tree .
