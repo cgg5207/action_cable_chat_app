@@ -1,4 +1,5 @@
-source 'https://rubygems.org'
+# source 'https://rubygems.org'
+source 'https://ruby.taobao.org'
 
 gem 'rails',                   '5.0.0'
 gem 'bcrypt',                  '3.1.11'
@@ -11,6 +12,9 @@ gem 'jquery-rails',            '4.1.1'
 gem 'turbolinks',              '5.0.0'
 gem 'jbuilder',                '2.4.1'
 gem 'kramdown',                '1.10.0'
+
+gem 'jquery-atwho-rails'
+gem 'jquery-hotkeys-rails'
 
 group :development, :test do
   gem 'sqlite3', '1.3.11'

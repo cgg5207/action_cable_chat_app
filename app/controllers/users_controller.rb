@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+  def names
+    @users = User.where('username like ?', "#{params[:query]}%").limit(7).pluck(:username)
+    render json: @users
+  end
+
   def new
     @user = User.new
   end

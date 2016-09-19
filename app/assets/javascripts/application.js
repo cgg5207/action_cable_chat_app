@@ -12,5 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.atwho
+//= require jquery-hotkeys
 //= require turbolinks
 //= require_tree .

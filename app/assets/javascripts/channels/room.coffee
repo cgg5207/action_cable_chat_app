@@ -11,16 +11,47 @@ App.room = App.cable.subscriptions.create "RoomChannel",
       $('#messages-table').append data.message
       scroll_bottom()
 
+isOpenAt = false
+
 $(document).on 'turbolinks:load', ->
   submit_message()
   scroll_bottom()
+  loadAtWho()
+
 
 submit_message = () ->
-  $('textarea#message_content').on 'keydown', (event) ->
-    if event.keyCode is 13 && !event.shiftKey
-      $('input').click()
+  $('textarea#message_content').unbind "keydown"
+  $('textarea#message_content').bind "keydown", "return", (el) ->
+    if $(el.target).val().trim().length > 0 && !isOpenAt
+      event.preventDefault();
+      # $('input').click()
+      $('#new_message').submit()
       event.target.value = ""
       event.preventDefault()
+      event.stopPropagation()
+      return false
 
 scroll_bottom = () ->
   $('#messages').scrollTop($('#messages')[0].scrollHeight)
+
+loadAtWho = ()->
+  $('textarea#message_content').atwho(
+    at: '@'
+    callbacks: remoteFilter: (query, callback) ->
+      if query != ''
+        return $.getJSON('/users/names.json', { query: query }, (data) ->
+          callback data
+          return
+        )
+      return
+  ).on('shown.atwho', (event, flag, query) ->
+    isOpenAt = true
+    return
+  ).on 'hidden.atwho', (event, flag, query) ->
+    isOpenAt = false
+    return
+
+
+
+
+
