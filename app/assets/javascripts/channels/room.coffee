@@ -17,6 +17,8 @@ $(document).on 'turbolinks:load', ->
   submit_message()
   scroll_bottom()
   loadAtWho()
+  $('textarea').autosize()
+
 
 
 submit_message = () ->

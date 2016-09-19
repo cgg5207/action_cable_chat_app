@@ -15,6 +15,10 @@ gem 'kramdown',                '1.10.0'
 
 gem 'jquery-atwho-rails'
 gem 'jquery-hotkeys-rails'
+gem 'dropzonejs-rails'
+gem 'rails_autolink'
+gem 'autosize-rails'
+gem 'gemoji'
 
 group :development, :test do
   gem 'sqlite3', '1.3.11'
